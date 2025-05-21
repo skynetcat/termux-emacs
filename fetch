@@ -1,0 +1,5 @@
+# fetch emacs versions
+curl -sl "https://sourceforge.net/projects/android-ports-for-gnu-emacs/files/" |\
+  grep --color=never -E "net.sf.files" |\ 
+  sed "s/net.sf.files = //g" |\
+  jq -r '. | keys[] | select( . | startswith("emacs") )' 2>/dev/null

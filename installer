@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Install apksigner
+pkg install apksigner -y
+
+# Install zipalign
+# wget https://github.com/rendiix/termux-zipalign/raw/refs/heads/main/prebuilt-binary/arm64-v8a/zipalign
+
+# Create a keystore to sign apks
+mkdir keystore
+keytool -genkey -v -keystore keystore/emacs-signer.keystore -alias emacs-signer -keyalg RSA -keysize 2048 -validity 10000
